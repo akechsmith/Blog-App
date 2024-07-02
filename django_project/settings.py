@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from environs import Env  #new
+
+env = Env() #new
+env.read_env()  #new
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +43,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic', # new
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',  #newly added app
-    'accounts.apps.AccountsConfig'  #new
+    'accounts.apps.AccountsConfig',  #new
+    'articles.apps.ArticlesConfig', #new
 ]
 
 MIDDLEWARE = [
@@ -109,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -130,5 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "home"  #new
 LOGOUT_REDIRECT_URL = "home" # new
-
 
